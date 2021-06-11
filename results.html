@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="./assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <title>Project Angel - Dashboard</title>
+
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="./assets/js/firebase.js"></script>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Project Angel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="add-clients.html">Add Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                </ul>
+                <div class="d-flex">
+                    <a class="btn btn-warning" href="profile.html">Profile</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+
+    <div class="container my-4">
+        <h1 class="mb-4">Today's Performance</h1>
+        <table class="table table-striped table-hover table-bordered" id="clientTable">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">PNL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td class="bg-danger text-light">-500</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td class="bg-success text-light">+2500</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>Mark</td>
+                <td class="bg-danger text-light">-750</td>
+              </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary">Download Results</a>
+    </div>
+
+  </body>
+  <!-- Bootstrap JS-->
+  <script src="./assets/vendor/bootstrap/bootstrap.js" ></script>
+</html>
