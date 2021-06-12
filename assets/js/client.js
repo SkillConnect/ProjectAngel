@@ -18,3 +18,10 @@ function addClient(){
         firebase.database().ref().update({newClientId: count + 1});
     });
 }
+
+function deleteClient(id){
+    if(confirm('Delete client'+ id + '?' )){
+        firebase.database().ref('clients/'+ id).remove();
+        location.reload();
+    }
+}
