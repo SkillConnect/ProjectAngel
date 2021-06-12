@@ -5,9 +5,6 @@ function login(){
     firebase.auth().signInWithEmailAndPassword(email, password)
      .then((userCredential) => {
     // Signed in
-    var user = userCredential.user;
-    console.log('HI')
-    // ...
     })
    .catch((error) => {
     var errorCode = error.code;
