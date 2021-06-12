@@ -5,7 +5,8 @@ function login(){
     firebase.auth().signInWithEmailAndPassword(email, password)
      .then((userCredential) => {
     // Signed in
-    window.location.href="../index.html"
+    window.location.href="./index.html"
+    console.log('Log in')
     })
    .catch((error) => {
     var errorCode = error.code;
@@ -17,7 +18,7 @@ function login(){
 function signout(){
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
-        window.location.href="../login.html"
+        window.location.href="./login.html"
         console.log('BYE')
       }).catch((error) => {
         // An error happened.
