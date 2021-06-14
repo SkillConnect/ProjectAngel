@@ -22,9 +22,9 @@ async function displayClientDetails() {
         	<td>${multiplier}</td>
         	<td>${status}</td>
         	<td><div class="d-flex">
-                    <a class="btn btn-warning" href="">Edit</a> </div> </td> 
+                    <a class="btn btn-warning" href="edit.html?id=${ID}">Edit</a> </div> </td> 
             <td><div class="d-flex">
-                    <a class="btn btn-primary" href="">Delete</a> </div> </td> </tr>`
+                    <a class="btn btn-primary" onclick= 'deleteClient(${ID})'>Delete</a> </div> </td> </tr>`
         	eachRow += eachRowContent
         }
     })

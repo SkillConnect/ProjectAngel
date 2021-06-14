@@ -20,8 +20,14 @@ function addClient(){
 }
 
 function deleteClient(id){
-    if(confirm('Delete client'+ id + '?' )){
+    if(confirm('Delete client '+ id + '?' )){
         firebase.database().ref('clients/'+ id).remove();
         location.reload();
+    }
+}
+
+function editClient(id){
+    if(confirm('Are you sure you want to save changes for client '+ id + '?')){
+        
     }
 }
