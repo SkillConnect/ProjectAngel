@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="./assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-    <title>Project Angel - Dashboard</title>
+    <title>Project Angel - Edit Clients</title>
 
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
@@ -16,7 +16,7 @@
     <script src="./assets/js/client.js"></script>
     <script src="./assets/js/auth.js"></script>
   </head>
-  <body>
+  <body onload="displayClient()">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,23 +49,19 @@
                 <form>
                     <div class="form-group mb-2">
                         <label>Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="First Last Name">
+                        <input type="text" class="form-control" id="name1">
                     </div>
                     <div class="form-group mb-2">
                       <label>Username</label>
-                      <input type="text" class="form-control" id="username" placeholder="AB12345">
+                      <input type="text" class="form-control" id="username1">
                     </div>
                     <div class="form-group mb-2">
                         <label>Password</label>
-                        <input type="password" class="form-control" id="password">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label>Confirm Password</label>
-                        <input type="password" class="form-control" id="password2">
+                        <input type="text" class="form-control" id="password1">
                     </div>
                     <div class="form-group mb-2">
                       <label for="exampleFormControlSelect1">Market Category</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
+                      <select class="form-control" id="exampleFormControlSelect11">
                         <option>NSE</option>
                         <option>NFO</option>
                         <option>Both</option>
@@ -73,11 +69,11 @@
                     </div>
                     <div class="form-group mb-2">
                         <label>Multiplier</label>
-                        <input type="number" class="form-control" id="multiplier" placeholder="1" value="1">
+                        <input type="number" class="form-control" id="multiplier1" value="">
                     </div>
                     <div class="form-group mb-2">
                         <label for="status">Status</label>
-                        <select class="form-control" id="status">
+                        <select class="form-control" id="status1">
                           <option>ON</option>
                           <option>OFF</option>
                         </select>
