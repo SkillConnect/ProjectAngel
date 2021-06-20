@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="./assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
-    <title>Project Angel - Dashboard</title>
+    <title>Project Angel - Edit Clients</title>
   </head>
-  <body>
+  <body onload="displayClient()">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -33,36 +33,48 @@
     <!-- Navbar Ends -->
 
     <div class="container my-4">
-      <h1 class="mb-4">Hello, Kapil!</h1>
-      <table class="table table-striped table-hover table-bordered" id="clientTable">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
-              <th scope="col">Password</th>
-              <th scope="col">Category</th>
-              <th scope="col">Multiplier</th>
-              <th scope="col">Status</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody id="clientDetails">
-            <tr>
-              <td></td>
-              <td></td>
-              <td>Loading</td>
-              <td>Clients</td>
-              <td>Details</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-      </table>
-  </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Client Profile</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-2">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name1">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>Username</label>
+                      <input type="text" class="form-control" id="username1">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Password</label>
+                        <input type="text" class="form-control" id="password1">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label for="exampleFormControlSelect1">Market Category</label>
+                      <select class="form-control" id="exampleFormControlSelect11">
+                        <option>NSE</option>
+                        <option>NFO</option>
+                        <option>Both</option>
+                      </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Multiplier</label>
+                        <input type="number" class="form-control" id="multiplier1" value="">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status1">
+                          <option>ON</option>
+                          <option>OFF</option>
+                        </select>
+                    </div>
+                </form>
+                <button class="mt-3 btn btn-primary" onclick="editClient()">Save Changes</button>
+            </div>
+        </div>
+    </div>
 
   </body>
   <!-- Bootstrap JS-->
@@ -71,7 +83,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/auth.js"></script>
-  <script src="./assets/js/index.js"></script>  
+  <script src="./assets/js/client.js"></script>
 </html>
