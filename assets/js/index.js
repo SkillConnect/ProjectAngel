@@ -4,28 +4,10 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 })
 
-
-
-
-firebase.auth().onAuthStateChanged((user) => {
-    const authPages = ['login']
-    var currentPage = window.location.pathname.split('/')
-    var currentPage = currentPage[currentPage.length-1].split('.')[0]
-
-    if (user && authPages.includes(currentPage)) {
-        window.location.href = 'index.html'
-    } 
-    else if(!user && !authPages.includes(currentPage)) {
-      // User is NOT signed in, redirecting to auth page
-      window.location.href = 'login.html'
-    }
-});
-
-
 async function displayClientDetails() {
-	var snapshot = await firebase.database().ref(`clients`).once('value');
+	var snapshot = await firebase.database().ref('clients').once('value');
 	var data = snapshot.val();
-	eachRow = ""
+	eachRow = ''
 	jQuery.each(data, function(ID, details) {
 		// console.log(ID, details)
         if(details) {
@@ -51,4 +33,11 @@ async function displayClientDetails() {
         }
     })
     document.getElementById("clientDetails").innerHTML = eachRow;
+}
+
+function deleteClient(id){
+    if(confirm('Delete client '+ id + '?' )){
+        firebase.database().ref('clients/'+ id).remove();
+        location.reload();
+    }
 }

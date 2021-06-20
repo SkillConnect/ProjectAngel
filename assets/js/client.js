@@ -1,20 +1,5 @@
-
-firebase.auth().onAuthStateChanged((user) => {
-    const authPages = ['login']
-    var currentPage = window.location.pathname.split('/')
-    var currentPage = currentPage[currentPage.length-1].split('.')[0]
-
-    if (user && authPages.includes(currentPage)) {
-        window.location.href = 'index.html'
-    } 
-    else if(!user && !authPages.includes(currentPage)) {
-      // User is NOT signed in, redirecting to auth page
-      window.location.href = 'login.html'
-    }
-});
-
 function addClient(){
-    firebase.database().ref('newClientId').once('value', (snapshot) => {
+    firebase.database().ref('newClientId').once('value', async (snapshot) => {
         let count = snapshot.val();
         var name = document.getElementById('name').value;
         var username = document.getElementById('username').value;
@@ -22,7 +7,7 @@ function addClient(){
         var multiplier = document.getElementById('multiplier').value;
         var status = document.getElementById('status').value;
         var market = document.getElementById('exampleFormControlSelect1').value;
-        firebase.database().ref('clients/' + count).set({
+        await firebase.database().ref('clients/' + count).set({
             userID: username,
             name: name,
             password: password,
@@ -30,15 +15,10 @@ function addClient(){
             status: status,
             marketCategory: market,
         });
-        firebase.database().ref().update({newClientId: count + 1});
+        await firebase.database().ref().update({newClientId: count + 1});
+        alert('Your changes have been saved')
+        window.location.reload()
     });
-}
-
-function deleteClient(id){
-    if(confirm('Delete client '+ id + '?' )){
-        firebase.database().ref('clients/'+ id).remove();
-        location.reload();
-    }
 }
 
 function editClient(){
@@ -58,20 +38,16 @@ function editClient(){
             status: status,
             marketCategory: market,
         });
+
+        alert('Configuration updated!')
+        window.location.href = 'index.html'
     }
 }
 
 function displayClient(){
     var id = location.href.split('?')[1].split('=')[1];
-    console.log(id)
     firebase.database().ref('clients/'+id).on('value', (snapshot) => {
-        let data=snapshot.val();
-        console.log(data.name)
-        console.log(data.userID)
-        console.log(data.password)
-        console.log(data.multiplier)
-        console.log(data.status)
-        console.log(data.marketCategory)
+        let data = snapshot.val();
         document.getElementById("name1").value = data.name;
         document.getElementById("username1").value = data.userID;
         document.getElementById("password1").value = data.password;
