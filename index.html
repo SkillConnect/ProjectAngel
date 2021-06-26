@@ -34,6 +34,8 @@
 
     <div class="container my-4">
       <h1 class="mb-4">Hello, Kapil!</h1>
+
+      <!-- Client Table -->
       <table class="table table-striped table-hover table-bordered" id="clientTable">
           <thead class="table-dark">
             <tr>
@@ -62,16 +64,32 @@
             </tr>
           </tbody>
       </table>
+
+      <!-- Status Report -->
+      <div class="card">
+        <div class="card-header">
+          Status
+        </div>
+        <div class="card-body" id="statusLogs">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Welcome!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
   </div>
 
   </body>
   <!-- Bootstrap JS-->
   <script src="./assets/vendor/bootstrap/bootstrap.js" ></script>
+  <script src="./assets/vendor/axios.js"></script>
   <!-- Firebase JS -->
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/auth.js"></script>
-  <script src="./assets/js/index.js"></script>  
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/magic.js"></script>
+  <script src="./assets/js/websocket.js"></script>
 </html>
