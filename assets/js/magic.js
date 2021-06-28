@@ -14,7 +14,7 @@ const headers = {
   'X-ClientLocalIP': '192.168.168.168',
   'X-ClientPublicIP': '1.2.3.4',
   'X-MACAddress': 'fe80::216e:6507:4b90:3719',
-  'X-PrivateKey': `${apiKey}`
+  'X-PrivateKey': '' // Api Key to be added after it's loaded
 }
 
 function login(credentials){
@@ -115,10 +115,16 @@ async function main() {
   const snapshot = await firebase.database().ref('/owner').once('value')
   const owner = snapshot.val()
   apiKey = owner.apiKey
+  headers['X-PrivateKey'] = apiKey
   const kapilsCredentials = {'clientCode': owner.AngelBrokingID, 'password': owner.AngelBrokingPassword}
   // 1. Login to Kapil's account and obtain JWT token
-  showStatusLog('Attempting to login', 'info')
-  var response = await login(kapilsCredentials)
+  showStatusLog('Attempting to login...', 'info')
+  try{
+    var response = await login(kapilsCredentials)
+  } catch(err) {
+    showStatusLog(`Login request failed with the following: ${err}`, 'danger')
+    return
+  }
   if(!response.data.status) {
     showStatusLog('Login attempt failed, please try refreshing or update your credentials', 'danger')
     console.log(response.data.errorcode, response.data.message)

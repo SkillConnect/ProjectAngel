@@ -1,3 +1,5 @@
+const category = ["NSE", "NFO", "BSE", "MCX"]
+
 function addClient(){
     firebase.database().ref('newClientId').once('value', async (snapshot) => {
         let count = snapshot.val();
@@ -7,18 +9,16 @@ function addClient(){
         var password2 = document.getElementById('password2').value;
         var multiplier = document.getElementById('multiplier').value;
         var status = document.getElementById('status').value;
-        category = ["NSE", "NFO", "BSE", "MCX"]
-        var market = ""
-        for( i=0; i<category.length; i++) {
+        var market = ''
+        for(let i=0; i<category.length; i++) {
             var check = document.getElementById(category[i]);
             if (check.checked == true) {
                 market += category[i];
-                market += ", "
+                market += ', ';
             }
         }
         market = market.slice(0,-2)
-        // console.log("market", market)
-        if ((password == password2) && password2!="") {
+        if ((password == password2) && password2!='') {
             await firebase.database().ref('clients/' + count).set({
                 userID: username,
                 name: name,
@@ -32,9 +32,8 @@ function addClient(){
             window.location.reload()
         }
         else {
-            alert("Password Doesn't Match! OR Password Can't be Empty");
+            alert('Password Doesn\'t Match! OR Password Can\'t be Empty');
         }
-        
     });
 }
 
@@ -46,18 +45,15 @@ function editClient(){
         var password = document.getElementById('password1').value;
         var multiplier = document.getElementById('multiplier1').value;
         var status = document.getElementById('status1').value;
-        // var market = document.getElementById('exampleFormControlSelect11').value;
-        category = ["NSE", "NFO", "BSE", "MCX"]
-        market = ""
-        for( i=0; i<category.length; i++) {
+        market = ''
+        for(let i=0; i<category.length; i++) {
             var check = document.getElementById(category[i]);
             if (check.checked == true) {
                 market += category[i];
-                market += ", "
+                market += ', ';
             }
         }
         market = market.slice(0,-2)
-        // console.log("market", market)
         firebase.database().ref('clients/' + id).set({
             userID: username,
             name: name,
@@ -81,22 +77,9 @@ function displayClient(){
         document.getElementById("password1").value = data.password;
         document.getElementById("multiplier1").value = data.multiplier;
         document.getElementById("status1").value = data.status;
-        // document.getElementById("exampleFormControlSelect11").value = data.marketCategory;
-
+        const market = data.marketCategory.toString().split(', ');
+        for (let i = 0; i < market.length; i++) {
+            document.getElementById(market[i]).checked = true;
+        }
     });
 }
-// market = []
-// function myFunction(type) {
-  // Get the checkbox
-  // var checkBox = document.getElementById("NSE");
-  // Get the output text
-  // var text = document.getElementById("text");
-
-  // If the checkbox is checked, display the output text
-  // if (checkBox.checked == true){
-      // market += type.value
-      // market += ', '
-    // console.log("changing market", market)
-    // text.style.display = "block";
-  // } 
-// }
