@@ -56,12 +56,24 @@
                         <input type="password" class="form-control" id="password2">
                     </div>
                     <div class="form-group mb-2">
-                      <label for="exampleFormControlSelect1">Market Category</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>NSE</option>
-                        <option>NFO</option>
-                        <option>Both</option>
-                      </select>
+                      <label>Market Category</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="NSE" id="NSE">
+                        <!-- onclick="myFunction(NSE)"" -->
+                        <label class="form-check-label" for="flexCheckChecked">NSE</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="NFO" id="NFO">
+                        <label class="form-check-label" for="flexCheckChecked">NFO</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="BSE" id="BSE">
+                        <label class="form-check-label" for="flexCheckChecked">BSE</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="MCX" id="MCX">
+                        <label class="form-check-label" for="flexCheckChecked">MCX</label>
+                      </div>
                     </div>
                     <div class="form-group mb-2">
                         <label>Multiplier</label>
